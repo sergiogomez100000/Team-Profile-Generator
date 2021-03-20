@@ -1,9 +1,9 @@
 const { generate } = require("rxjs");
 
-const showTeam = team => {
+const showTeam = team => {// creates showTeam function using team info
     // where the html template goes
     
-    const showManager = manager => {
+    const showManager = manager => {// creates showM func with manager info, returns htmtl format to create html
         return `
         <div class="card container column col-4">
         <div class="card-header">Name: ${manager.getName()}</div>
@@ -14,7 +14,7 @@ const showTeam = team => {
     </div>
         `
     }
-    const showEngineer = manager => {
+    const showEngineer = manager => {// reaturns html format with temp literals to plug in info
         return `
         <div class="card container column col-4">
         <div class="card-header">Name: ${engineer.getName()}</div>
@@ -36,27 +36,27 @@ const showTeam = team => {
     </div>
         `
     }
-    const html = [];
+    const html = [];// empty array for html
 
-    html.push(team
-        .filter(employee => employee.getRole() === "Manager")
-        .map(manager => showManager(manager))
+    html.push(team// pushes team to html bt have to filter and map 
+        .filter(employee => employee.getRole() === "Manager")// filter only for managers
+        .map(manager => showManager(manager))// creates new array  with evry new manager
         //.join("")
     );
 
     // do the same thing for interns and engineers EXCEPT ONE MORE STEP
-    html.push(team
-        .filter(employee=> employee.getRole()=== "Engineer")
-        .map(engineer => showEngineer(manager))
-        .join("")
+    html.push(team// pushes team to html but has to filter map join 
+        .filter(employee=> employee.getRole()=== "Engineer")//filter for enginners
+        .map(engineer => showEngineer(engineer))// create new array with engineers
+        .join("")// joins to html
     
     );
-    html.push(team
-        .filter(employee => employee.getRole()==="Intern")
-        .map(intern => showIntern(intern))
-        .join("")
+    html.push(team// pushe team to html but has to filter map join
+        .filter(employee => employee.getRole()==="Intern")//filter for intern
+        .map(intern => showIntern(intern))// creates new array with interns
+        .join("")//joins html
     );
-    return html.join("");
+    return html.join("");//joins all to hmtml
 }
 
 module.exports = team => {
