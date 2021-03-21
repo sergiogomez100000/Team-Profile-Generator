@@ -1,13 +1,13 @@
 //Include packages and mods
 const inquirer = require("inquirer"); //for questions
 const fs = require("fs"); //to write hmtl
-const Manager = require("libmanager.js"); //import Manager class
-const Engineer = require("libengineer.js"); //immport Engineer class
-const Intern = require("libintern.js"); //import Intern class
+const Manager = require("lib/manager.js"); //import Manager class
+const Engineer = require("lib/engineer.js"); //immport Engineer class
+const Intern = require("lib/intern.js"); //import Intern class
 const path = require("path"); //create path to html
 const { createReadStream } = require("node:fs");
 const { inherits } = require("node:util");
-//const generateHtml = require("dist/team-roster.html")/// maybe put in dist folder, name t-r.html?
+
 
 const OUTPUT_DIR = path.resolve(__dirname, "dist"); // creates string path to the dist folder
 const OutputPath = path.join(OUTPUT_DIR, "basetemplate.html"); // takes in string and adds the /basetemplate.html
