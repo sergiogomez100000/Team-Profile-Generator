@@ -1,9 +1,9 @@
 //Include packages and mods
 const inquirer = require("inquirer"); //for questions
 const fs = require("fs"); //to write hmtl
-const Manager = require("lib/manager.js"); //import Manager class
-const Engineer = require("lib/engineer.js"); //immport Engineer class
-const Intern = require("lib/intern.js"); //import Intern class
+const Manager = require("./lib/manager.js"); //import Manager class
+const Engineer = require("./lib/engineer.js"); //immport Engineer class
+const Intern = require("./lib/intern.js"); //import Intern class
 const path = require("path"); //create path to html
 const { createReadStream } = require("node:fs");
 const { inherits } = require("node:util");
@@ -17,22 +17,22 @@ const questions = [
   {
     // array of manager questions
     name: "Name",
-    message: "What is team manager your name?",
+    message: "What is your team manager's name?",
     type: "input",
   },
   {
     name: "Id",
-    message: "What is your employee ID?",
+    message: "What is your team manager's ID?",
     type: "number",
   },
   {
     name: "Email",
-    message: "What is your email address",
+    message: "What is your team manager's email address",
     type: "input",
   },
   {
     name: "Office",
-    message: "What is your office number?",
+    message: "What is your team manager's office number?",
     type: "number",
   },
 ];
@@ -40,22 +40,22 @@ const engineerQuestions = [
   {
     //array of engineers questions
     name: "Name",
-    message: "What is your name?",
+    message: "What is your engineer's name?",
     type: "input",
   },
   {
     name: "Id",
-    message: "What is your employee ID?",
+    message: "What is your engineer's ID?",
     type: "number",
   },
   {
     name: "Email",
-    message: "What is your email address",
+    message: "What is your engineer's email address",
     type: "input",
   },
   {
     name: "Github",
-    message: "What is your Githb username?",
+    message: "What is your engineer's Githb username?",
     type: "input",
   },
   ,
@@ -64,22 +64,22 @@ const internQuestions = [
   {
     //first array of questions
     name: "Name",
-    message: "What is your name?",
+    message: "What is your intern's name?",
     type: "input",
   },
   {
     name: "Id",
-    message: "What is your employee ID?",
+    message: "What is your intern's employee ID?",
     type: "number",
   },
   {
     name: "Email",
-    message: "What is your email address",
+    message: "What is your intern's email address?",
     type: "input",
   },
   {
     name: "School",
-    message: "What is your School?",
+    message: "What is your intern's School?",
     type: "input",
   },
 ];
@@ -113,6 +113,7 @@ function initialize() {
         teamMems.push(manager); //pushes manager into teamMems array
         ids.push(answers.Id); ///pushes Id info from ansrs into ids array
         createTeam(); //runs create team function
+          
       });
   }
 }
