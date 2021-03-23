@@ -30,7 +30,7 @@ const questions = [
     type: "input",
   },
   {
-    name: "Office",
+    name: "officeNumber",
     message: "What is your team manager's office number?",
     type: "number",
   },
@@ -49,7 +49,7 @@ const engineerQuestions = [
   },
   {
     name: "Email",
-    message: "What is your engineer's email address",
+    message: "What is your engineer's email address?",
     type: "input",
   },
   {
@@ -108,9 +108,10 @@ function createManager() {
         answers.Name,
         answers.Id,
         answers.Email,
-        answers.OfficeNumber
+        answers.officeNumber,
       );
       teamMems.push(manager); //pushes manager into teamMems array
+      console.log(teamMems);
       ids.push(answers.Id); ///pushes Id info from ansrs into ids array
       createTeam(); //runs create team function
     });
@@ -130,6 +131,7 @@ function createEngineer() {
         answers.Github,
       );
       teamMems.push(engineer); //creates eng using new Eng class with answers info, pushs into teamM array
+      console.log(teamMems);
       ids.push(answers.Id); // pushes id from answers to ids array
       createTeam(); //runs create team function
     });
@@ -149,6 +151,7 @@ function createIntern() {
         answers.School
       );
       teamMems.push(intern); //pushes intern to teamM array
+      console.log(teamMems);
       ids.push(answers.Id); //pushes Id from answers to ids array
       createTeam(); //runs createTeam function
     });
@@ -174,12 +177,12 @@ function createTeam() {
     }
   });
 }
-function buildTeam(teamMems) {//function to build team once evryones added
+function buildTeam() {//function to build team once evryones added
   console.log(teamMems)
   let path = "src\template.js";
   try {
     if (fs.existsSync(path)) {
-      fs.writeFile("team-profile.html",team,"utf8",showTeam);
+      fs.writeFile("team-profile.html",showTeam(teamMems));
     }
   } catch (err) {
     console.error(err);
