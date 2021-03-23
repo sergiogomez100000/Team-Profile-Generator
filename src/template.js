@@ -3,7 +3,7 @@ const { generate } = require("rxjs");
 const showTeam = team => {// creates showTeam function using team info
     // where the html template goes
     
-    const showManager = manager => {// creates showM func with manager info, returns htmtl format to create html
+    const showManager = team => {// creates showM func with manager info, returns htmtl format to create html
         return `
         <div class="card container column col-4">
         <div class="card-header">Name: ${manager.getName()}</div>
@@ -14,7 +14,7 @@ const showTeam = team => {// creates showTeam function using team info
     </div>
         `
     }
-    const showEngineer = manager => {// reaturns html format with temp literals to plug in info
+    const showEngineer = team => {// reaturns html format with temp literals to plug in info
         return `
         <div class="card container column col-4">
         <div class="card-header">Name: ${engineer.getName()}</div>
@@ -25,7 +25,7 @@ const showTeam = team => {// creates showTeam function using team info
     </div>
         `
     }
-    const showIntern = manager => {
+    const showIntern = team => {
         return `
         <div class="card container column col-4">
         <div class="card-header">Name: ${intern.getName()}</div>

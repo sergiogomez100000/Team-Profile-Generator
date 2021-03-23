@@ -127,7 +127,7 @@ function createEngineer() {
         answers.Name,
         answers.Id,
         answers.Email,
-        answers.Github
+        answers.Github,
       );
       teamMems.push(engineer); //creates eng using new Eng class with answers info, pushs into teamM array
       ids.push(answers.Id); // pushes id from answers to ids array
@@ -174,11 +174,12 @@ function createTeam() {
     }
   });
 }
-function buildTeam() {//function to build team once evryones added
+function buildTeam(teamMems) {//function to build team once evryones added
+  console.log(teamMems)
   let path = "src\template.js";
   try {
     if (fs.existsSync(path)) {
-      fs.writeFile(teamMems, "utf8",showTeam);
+      fs.writeFile("team-profile.html",team,"utf8",showTeam);
     }
   } catch (err) {
     console.error(err);
