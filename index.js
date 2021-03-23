@@ -159,8 +159,8 @@ function createTeam() {
   //function to create team
   //ask what type of team member to create, make case for each, and run functions fro each
   inquirer.prompt(menuquestions).then((answers) => {
-    console.log(answers)// ask menuquestions to add teamM or finish
-    switch (answers.menu){ //create switch for every case of choices from answer 
+    console.log(answers.Menu)// ask menuquestions to add teamM or finish
+    switch (answers.Menu){ //create switch for every case of choices from answer 
       case "Add Manager": //if Add M cosen
         createManager(); //run create M function
         break; //get outta this
