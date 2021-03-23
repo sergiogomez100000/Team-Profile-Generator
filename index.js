@@ -125,7 +125,7 @@ function createEngineer() {
     .then((answers) => {
       // with info now answers use in function below
       const engineer = new Engineer(
-        answer.Name,
+        answers.Name,
         answers.Id,
         answers.Email,
         answers.Github
@@ -144,7 +144,7 @@ function createIntern() {
     .then((answers) => {
       //then with data now answers,runs func to create intrn w/ new Intrn class and info
       const intern = new Intern(
-        answer.Name,
+        answers.Name,
         answers.Id,
         answers.Email,
         answers.School
@@ -189,3 +189,4 @@ function buildTeam() {//function to build team once evryones added
 // build team
 // check if the files exists
 // write the new file with the info
+//if i make an array of teamMems and Ids do i export them to 
