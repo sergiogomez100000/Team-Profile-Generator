@@ -54,10 +54,9 @@ const engineerQuestions = [
   },
   {
     name: "Github",
-    message: "What is your engineer's Githb username?",
+    message: "What is your engineer's Github username?",
     type: "input",
   },
-  ,
 ];
 const internQuestions = [
   {
@@ -179,7 +178,7 @@ function buildTeam() {//function to build team once evryones added
   let path = "src\template.js";
   try {
     if (fs.existsSync(path)) {
-      fs.writeFile(teamMems, "utf8");
+      fs.writeFile(teamMems, "utf8",showTeam);
     }
   } catch (err) {
     console.error(err);
