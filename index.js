@@ -5,9 +5,8 @@ const Manager = require("./lib/manager.js"); //import Manager class
 const Engineer = require("./lib/engineer.js"); //immport Engineer class
 const Intern = require("./lib/intern.js"); //import Intern class
 const path = require("path"); //create path to html
-const { createReadStream } = require("node:fs");
-const { inherits } = require("node:util");
-
+//const { createReadStream } = require("node:fs");
+//const { inherits } = require("node:util");
 
 const OUTPUT_DIR = path.resolve(__dirname, "dist"); // creates string path to the dist folder
 const OutputPath = path.join(OUTPUT_DIR, "basetemplate.html"); // takes in string and adds the /basetemplate.html
@@ -27,7 +26,7 @@ const questions = [
   },
   {
     name: "Email",
-    message: "What is your team manager's email address",
+    message: "What is your team manager's email address?",
     type: "input",
   },
   {
@@ -98,24 +97,24 @@ const ids = [];
 initialize();
 // might want to wrap in an init function but don't have to
 function initialize() {
-  function createManager() {
-    //function to create manager
-    inquirer
-      .prompt(questions) //ask questions
-      .then((answers) => {
-        // data now called answers, creates mnager but running new Mnager class w/ansrs info
-        const manager = new Manager(
-          answers.Name,
-          answers.Id,
-          answers.Email,
-          answers.OfficeNumber
-        );
-        teamMems.push(manager); //pushes manager into teamMems array
-        ids.push(answers.Id); ///pushes Id info from ansrs into ids array
-        createTeam(); //runs create team function
-          
-      });
-  }
+  createManager();
+}
+function createManager() {
+  //function to create manager
+  inquirer
+    .prompt(questions) //ask questions
+    .then((answers) => {
+      // data now called answers, creates mnager but running new Mnager class w/ansrs info
+      const manager = new Manager(
+        answers.Name,
+        answers.Id,
+        answers.Email,
+        answers.OfficeNumber
+      );
+      teamMems.push(manager); //pushes manager into teamMems array
+      ids.push(answers.Id); ///pushes Id info from ansrs into ids array
+      createTeam(); //runs create team function
+    });
 }
 
 // createEngineer
@@ -156,34 +155,37 @@ function createIntern() {
     });
 }
 
-function createTeam() {//function to create team
+function createTeam() {
+  //function to create team
   //ask what type of team member to create, make case for each, and run functions fro each
-  inquirer.prompt(menuquestions).then((answers) => {// ask menuquestions to add teamM or finish
-    switch (answers) {//create switch for every case of choices from answer
-      case "Add Manager"://if Add M cosen
-        createManager();//run create M function
-        break;//get outta this 
-      case "Add Engineer"://if Add E chosen
-        createEngineer();//run create E function
-        break;//get out
-      case "Add Intern"://if add I chosen
-        createIntern();//run create I function
-        break;//get out
-      case "Finish":// if Finish chosen
-        buildTeam();// run buildTeamfunction
+  inquirer.prompt(menuquestions).then((answers) => {
+    // ask menuquestions to add teamM or finish
+    switch (
+      answers //create switch for every case of choices from answer
+    ) {
+      case "Add Manager": //if Add M cosen
+        createManager(); //run create M function
+        break; //get outta this
+      case "Add Engineer": //if Add E chosen
+        createEngineer(); //run create E function
+        break; //get out
+      case "Add Intern": //if add I chosen
+        createIntern(); //run create I function
+        break; //get out
+      case "Finish": // if Finish chosen
+        buildTeam(); // run buildTeamfunction
     }
   });
 }
-function buildTeam(){
-    let path ="src\template.js"
-try{
-    if(fs.existsSync(path)){
-        fs.writeFile(teamMems, "utf8")
+function buildTeam() {//function to build team once evryones added
+  let path = "src\template.js";
+  try {
+    if (fs.existsSync(path)) {
+      fs.writeFile(teamMems, "utf8");
     }
-}
-    catch(err){
-        console.error(err)
-    }
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 // build team
