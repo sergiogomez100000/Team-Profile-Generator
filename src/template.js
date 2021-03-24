@@ -11,7 +11,7 @@ const showTeam = teamMems => {// creates showTeam function using team info
         <div class="card-header">Role: ${manager.getRole()}</div>
         <div class="card-content">ID: ${manager.getId()}</div>
         <div class="card-content">Office#:${manager.getofficeNumber()}</div>
-        <div class="card-content">Email: ${manager.getEmail()}</div>
+        <div class="card-content"><a href="mailto:${manager.getEmail()}">Email: ${manager.getEmail()} </a></div>
     </div>
         `
     }
@@ -21,8 +21,8 @@ const showTeam = teamMems => {// creates showTeam function using team info
         <div class="card-header">Name: ${engineer.getName()}</div>
         <div class="card-header">Role: ${engineer.getRole()}</div>
         <div class="card-content">ID: ${engineer.getId()}</div>
-        <div class="card-content">Office#:${engineer.getGithub()}</div>
-        <div class="card-content">Email: ${engineer.getEmail()}</div>
+        <div><a href="https://www.github.com/${engineer.getGithub()}">${engineer.getGithub()}</a></div>
+        <div class="card-content"><a href="mailto:${engineer.getEmail()}">Email: ${engineer.getEmail()} </a></div>
     </div>
         `
     }
@@ -32,8 +32,8 @@ const showTeam = teamMems => {// creates showTeam function using team info
         <div class="card-header">Name: ${intern.getName()}</div>
         <div class="card-header">Role: ${intern.getRole()}</div>
         <div class="card-content">ID: ${intern.getId()}</div>
-        <div class="card-content">Office#:${intern.getSchool()}</div>
-        <div class="card-content">Email: ${intern.getEmail()}</div>
+        <div class="card-content">School:${intern.getSchool()}</div>
+        <div class="card-content"><a href="mailto:${intern.getEmail()}">Email: ${intern.getEmail()} </a></div>
     </div>
         `
     }
