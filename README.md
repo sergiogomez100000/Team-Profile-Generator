@@ -16,8 +16,8 @@ Must have Node.js installed as well as the module packages Inquirer, Jest, Fs,
 Easy to use just open the repostiory in your Code Editor, open the integrated terminal and input node index.js .
 
 ## Tests
-You can run tests by inputing in the intergrated terminal npm run test
+You can run tests by inputing in the intergrated terminal npm run test.
 
 ## Links 
-You can see a link to my video going through the process here() and a link to my Github repository here().
+You can see a link to my video going through the process here() and a link to my Github repository here(https://github.com/sergiogomez100000/Team-Profile-Generator).
 
