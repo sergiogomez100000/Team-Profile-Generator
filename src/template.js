@@ -1,4 +1,5 @@
 const { generate } = require("rxjs");
+const teamMems = require("..");
 
 const showTeam = teamMems => {// creates showTeam function using team info
     // where the html template goes
@@ -9,7 +10,7 @@ const showTeam = teamMems => {// creates showTeam function using team info
         <div class="card-header">Name: ${manager.getName()}</div>
         <div class="card-header">Role: ${manager.getRole()}</div>
         <div class="card-content">ID: ${manager.getId()}</div>
-        <div class="card-content">Office#:${manager.getOfficeNumber()}</div>
+        <div class="card-content">Office#:${manager.getofficeNumber()}</div>
         <div class="card-content">Email: ${manager.getEmail()}</div>
     </div>
         `
@@ -45,13 +46,13 @@ const showTeam = teamMems => {// creates showTeam function using team info
     );
 
     // do the same thing for interns and engineers EXCEPT ONE MORE STEP
-    html.push(team// pushes team to html but has to filter map join 
+    html.push(teamMems// pushes team to html but has to filter map join 
         .filter(employee=> employee.getRole()=== "Engineer")//filter for enginners
         .map(engineer => showEngineer(engineer))// create new array with engineers
         .join("")// joins to html
     
     );
-    html.push(team// pushe team to html but has to filter map join
+    html.push(teamMems// pushe team to html but has to filter map join
         .filter(employee => employee.getRole()==="Intern")//filter for intern
         .map(intern => showIntern(intern))// creates new array with interns
         .join("")//joins html
@@ -59,7 +60,7 @@ const showTeam = teamMems => {// creates showTeam function using team info
     return html.join("");//joins all to hmtml
 }
 
-module.exports = team => {
+module.exports = teamMems => {
    // return your whole html file EXCEPT for where you show your cards
     // template literal for showTeam(team);
     return `<!DOCTYPE html>
@@ -79,7 +80,7 @@ module.exports = team => {
               </p>
             </div>
         </section>
-       ${showTeam(team)}
+       ${showTeam(teamMems)}
     
     </body>
     </html>
