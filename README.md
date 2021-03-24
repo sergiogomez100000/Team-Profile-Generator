@@ -19,5 +19,5 @@ Easy to use just open the repostiory in your Code Editor, open the integrated te
 You can run tests by inputing in the intergrated terminal npm run test.
 
 ## Links 
-You can see a link to my video going through the process here() and a link to my Github repository here(https://github.com/sergiogomez100000/Team-Profile-Generator).
+You can see a link to my video going through the process here(https://drive.google.com/file/d/1lweGzmDXzD3J3xzsWIiC3LLBduzglmGB/view) and a link to my Github repository here(https://github.com/sergiogomez100000/Team-Profile-Generator).
 
