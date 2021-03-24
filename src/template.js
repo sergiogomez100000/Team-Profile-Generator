@@ -1,9 +1,9 @@
 const { generate } = require("rxjs");
 
-const showTeam = team => {// creates showTeam function using team info
+const showTeam = teamMems => {// creates showTeam function using team info
     // where the html template goes
     
-    const showManager = team => {// creates showM func with manager info, returns htmtl format to create html
+    const showManager = manager => {// creates showM func with manager info, returns htmtl format to create html
         return `
         <div class="card container column col-4">
         <div class="card-header">Name: ${manager.getName()}</div>
@@ -14,7 +14,7 @@ const showTeam = team => {// creates showTeam function using team info
     </div>
         `
     }
-    const showEngineer = team => {// reaturns html format with temp literals to plug in info
+    const showEngineer = engineer => {// reaturns html format with temp literals to plug in info
         return `
         <div class="card container column col-4">
         <div class="card-header">Name: ${engineer.getName()}</div>
@@ -25,7 +25,7 @@ const showTeam = team => {// creates showTeam function using team info
     </div>
         `
     }
-    const showIntern = team => {
+    const showIntern = intern => {
         return `
         <div class="card container column col-4">
         <div class="card-header">Name: ${intern.getName()}</div>
@@ -38,7 +38,7 @@ const showTeam = team => {// creates showTeam function using team info
     }
     const html = [];// empty array for html
 
-    html.push(team// pushes team to html bt have to filter and map 
+    html.push(teamMems// pushes team to html bt have to filter and map 
         .filter(employee => employee.getRole() === "Manager")// filter only for managers
         .map(manager => showManager(manager))// creates new array  with evry new manager
         //.join("")
@@ -87,3 +87,4 @@ module.exports = team => {
     
     `
 }
+module.exports = showTeam;
