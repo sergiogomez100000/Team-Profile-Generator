@@ -181,13 +181,12 @@ function createTeam() {
 function buildTeam() {//function to build team once evryones added
   console.log(teamMems)
   //let path = "src\template.js";
-  try {
+  
     //if (fs.existsSync(path)) 
-      fs.writeFile("team-profile.html",showTeam(teamMems));
-  } catch (err) {
-    console.error(err);
-  }
-}
+      fs.writeFile("team-profile.html",showTeam(teamMems),()=>
+    console.log("File was written!"));
+  
+};
 module.exports = teamMems
 // build team
 // check if the files exists
