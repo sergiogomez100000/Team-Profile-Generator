@@ -6,7 +6,7 @@ const showTeam = teamMems => {// creates showTeam function using team info
     
     const showManager = manager => {// creates showM func with manager info, returns htmtl format to create html
         return `
-        <div class="card container column col-4">
+        <div class="card container is-fluid column col-4">
         <div class="card-header">Name: ${manager.getName()}</div>
         <div class="card-header">Role: ${manager.getRole()}</div>
         <div class="card-content">ID: ${manager.getId()}</div>
@@ -17,18 +17,18 @@ const showTeam = teamMems => {// creates showTeam function using team info
     }
     const showEngineer = engineer => {// reaturns html format with temp literals to plug in info
         return `
-        <div class="card container column col-4">
+        <div class="card container is-fluid column col-4">
         <div class="card-header">Name: ${engineer.getName()}</div>
         <div class="card-header">Role: ${engineer.getRole()}</div>
         <div class="card-content">ID: ${engineer.getId()}</div>
-        <div><a href="https://www.github.com/${engineer.getGithub()}">${engineer.getGithub()}</a></div>
+        <div><a href="https://www.github.com/${engineer.getGithub()}" target="_blank" >${engineer.getGithub()}</a></div>
         <div class="card-content"><a href="mailto:${engineer.getEmail()}">Email: ${engineer.getEmail()} </a></div>
     </div>
         `
     }
     const showIntern = intern => {
         return `
-        <div class="card container column col-4">
+        <div class="card container is-fluid column col-4">
         <div class="card-header">Name: ${intern.getName()}</div>
         <div class="card-header">Role: ${intern.getRole()}</div>
         <div class="card-content">ID: ${intern.getId()}</div>
@@ -60,7 +60,7 @@ const showTeam = teamMems => {// creates showTeam function using team info
     return html.join("");//joins all to hmtml
 }
 
-module.exports = teamMems => {
+const showHtml = teamMems => {
    // return your whole html file EXCEPT for where you show your cards
     // template literal for showTeam(team);
     return `<!DOCTYPE html>
@@ -88,4 +88,4 @@ module.exports = teamMems => {
     
     `
 }
-module.exports = showTeam;
+module.exports = showHtml;

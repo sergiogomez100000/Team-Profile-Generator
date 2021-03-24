@@ -5,7 +5,7 @@ const Manager = require("./lib/manager.js"); //import Manager class
 const Engineer = require("./lib/engineer.js"); //immport Engineer class
 const Intern = require("./lib/intern.js"); //import Intern class
 const path = require("path"); //create path to html
-const showTeam= require("./src/template");
+const showHtml= require("./src/template");
 //const { createReadStream } = require("node:fs");
 //const { inherits } = require("node:util");
 
@@ -183,7 +183,8 @@ function buildTeam() {//function to build team once evryones added
   //let path = "src\template.js";
   
     //if (fs.existsSync(path)) 
-      fs.writeFile("team-profile.html",showTeam(teamMems),()=>
+      // fs.writeFile("team-profile.html",showTeam(teamMems),()=>
+      fs.writeFile("team-profile.html",showHtml(teamMems),()=>
     console.log("File was written!"));
   
 };
